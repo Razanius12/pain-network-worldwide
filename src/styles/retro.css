@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
+/* Startup animation sequence */
+.startup-sequence {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Share Tech Mono', monospace;
+  color: #67E8F9;
+  animation: fadeout 0.5s ease-in-out 4s forwards;
+}
+
+.startup-text {
+  text-align: left;
+  white-space: pre;
+  opacity: 0;
+}
+
+.startup-text:nth-child(1) {
+  animation: typein 1s steps(30) 0.5s forwards;
+}
+
+.startup-text:nth-child(2) {
+  animation: typein 1s steps(30) 1.5s forwards;
+}
+
+.startup-text:nth-child(3) {
+  animation: typein 1s steps(30) 2.5s forwards;
+}
+
+@keyframes typein {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Fade in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, 
+              transform 0.6s ease-out;
+  transition-delay: var(--delay, 0s);
+  will-change: opacity, transform;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeout {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Add stagger delays for child elements */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger.is-visible > *:nth-child(1) { transition-delay: calc(var(--delay, 0s)); }
+.stagger.is-visible > *:nth-child(2) { transition-delay: calc(var(--delay, 0s) + 0.1s); }
+.stagger.is-visible > *:nth-child(3) { transition-delay: calc(var(--delay, 0s) + 0.2s); }
+.stagger.is-visible > *:nth-child(4) { transition-delay: calc(var(--delay, 0s) + 0.3s); }
+.stagger.is-visible > *:nth-child(5) { transition-delay: calc(var(--delay, 0s) + 0.4s); }
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+.retro-bg {
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(0, 255, 255, 0.1) 0%, transparent 25%),
+    radial-gradient(circle at 75% 75%, rgba(0, 255, 255, 0.1) 0%, transparent 25%),
+    linear-gradient(45deg, #000000 25%, #111111 25%, #111111 50%, #000000 50%, #000000 75%, #111111 75%);
+  background-size: 40px 40px, 40px 40px, 20px 20px;
+}
+
+.retro-text {
+  font-family: 'Orbitron', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.retro-mono {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.retro-border {
+  border: 2px solid #00ffff;
+  border-radius: 0;
+  position: relative;
+}
+
+.retro-border::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 1px solid #004444;
+  border-radius: 0;
+  z-index: -1;
+}
+
+.retro-glow {
+  box-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.5),
+    0 0 20px rgba(0, 255, 255, 0.3),
+    inset 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.retro-text-glow {
+  text-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.5),
+    0 0 20px rgba(0, 255, 255, 0.3),
+    0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.retro-button {
+  background: linear-gradient(145deg, #001122, #003344);
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.retro-button.instagram-cta {
+  font-size: min(3.1vw, 1rem);
+}
+
+.retro-button:hover {
+  background: linear-gradient(145deg, #003344, #005566);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+  color: #ffffff;
+}
+
+.retro-button:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shine 0.5s;
+}
+
+.retro-button-small {
+  background: linear-gradient(145deg, #001122, #003344);
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.retro-button-small:hover {
+  background: linear-gradient(145deg, #003344, #005566);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+  color: #ffffff;
+}
+
+.retro-nav-button {
+  display: block;
+  color: #00ffff;
+  padding: 10px 16px;
+  border: 1px solid #003344;
+  background: linear-gradient(145deg, #001122, #002233);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  margin-bottom: 2px;
+}
+
+.retro-nav-button:hover {
+  background: linear-gradient(145deg, #003344, #004455);
+  border-color: #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.mobile-menu-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.mobile-menu-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.retro-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .retro-grid {
+    grid-template-columns: 1fr;
+  }
+}
