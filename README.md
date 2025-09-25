@@ -1,5 +1,7 @@
 # Pain Network Worldwide
 
+![Pain Network Worldwide Landing Page](src/assets/preview.png)
+
 A nostalgic reimagining of 2000s Japanese car culture websites built with modern tech. This landing page captures the essence of classic tuner sites like ABFLUG, RE-Amemiya, and C-West, featuring bold retro-cyberpunk design elements while delivering a smooth, contemporary user experience.
 
 ## 🌟 Project Vision

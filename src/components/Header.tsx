@@ -115,7 +115,7 @@ export function Header() {
 
                 {/* Quick stats */}
                 <div className="retro-mono text-xs text-gray-500">
-                  v3.1.1 • RETRO
+                  v3.1.2 • RETRO
                 </div>
               </div>
             </FadeIn>
