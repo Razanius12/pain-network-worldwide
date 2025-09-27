@@ -264,3 +264,26 @@ html {
     grid-template-columns: 1fr;
   }
 }
+
+/* Blog specific styles */
+.prose h3 {
+  color: #00ffff !important;
+  font-family: 'Orbitron', monospace !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3) !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.prose p {
+  color: #d1d5db !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.prose strong {
+  color: #00ffff !important;
+}

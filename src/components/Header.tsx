@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { handleSmoothScroll } from '../utils/smoothScroll';
 import { APP_VERSION_FULL } from '../constants/version';
+import { Route } from '../hooks/useRouter';
 
 const navLinks = [
   { href: "#home", label: "HOME" },
@@ -10,13 +11,19 @@ const navLinks = [
   { href: "#showcase", label: "SHOWCASE" },
   { href: "#community", label: "COMMUNITY" },
   { href: "#instagram", label: "INSTAGRAM" },
+  { href: "/blog", label: "BLOG", route: "blog" },
   { href: "https://discord.com/invite/nG8QZZM6vW", label: "DISCORD", external: true }
 ];
 
 const nbsp = (count: number) => '\u00A0'.repeat(count);
 
-export function Header() {
-  const startupDelay = 4.2;
+interface HeaderProps {
+  currentRoute: Route;
+  onNavigate: (route: Route) => void;
+}
+
+export function Header({ currentRoute, onNavigate }: HeaderProps) {
+  const startupDelay = currentRoute === 'blog' ? 0 : 4.2;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleNavClick = () => {
