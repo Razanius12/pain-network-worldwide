@@ -2,6 +2,7 @@ import { StartupSequence } from './components/StartupSequence';
 import { Header } from './components/Header';
 import { HeroSection } from './sections/HeroSection';
 import { FounderSection } from './sections/FounderSection';
+import { AboutSection } from './sections/AboutSection';
 import { ShowcaseSection } from './sections/ShowcaseSection';
 import { CommunityHighlightsSection } from './sections/CommunityHighlightsSection';
 import { InstagramSection } from './sections/InstagramSection';
@@ -19,7 +20,8 @@ export default function App() {
         {/* Main content - offset for desktop sidebar */}
         <div className="md:ml-48 pt-16 md:pt-0">
           <HeroSection />
-          <FounderSection />
+          {/* <FounderSection /> */}
+          <AboutSection />
           <ShowcaseSection />
           <CommunityHighlightsSection />
           <InstagramSection />

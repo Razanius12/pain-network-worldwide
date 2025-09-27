@@ -2,14 +2,18 @@ import { FadeIn } from '../components/FadeIn';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { handleSmoothScroll } from '../utils/smoothScroll';
+import { APP_VERSION_FULL } from '../constants/version';
 
 const navLinks = [
   { href: "#home", label: "HOME" },
+  { href: "#about", label: "ABOUT" },
   { href: "#showcase", label: "SHOWCASE" },
   { href: "#community", label: "COMMUNITY" },
   { href: "#instagram", label: "INSTAGRAM" },
   { href: "https://discord.com/invite/nG8QZZM6vW", label: "DISCORD", external: true }
 ];
+
+const nbsp = (count: number) => '\u00A0'.repeat(count);
 
 export function Header() {
   const startupDelay = 4.2;
@@ -108,14 +112,14 @@ export function Header() {
                 {/* ASCII Art */}
                 <div className="retro-mono text-xs text-cyan-400/50 leading-none mb-3">
                   ▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲<br />
-                  │ &nbsp; SITE 4EVER&nbsp; &nbsp;│<br />
+                  │ {nbsp(1)}SITE 4EVER {nbsp(2)}│<br />
                   │ UNDERGROUND ✦  │<br />
                   ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼
                 </div>
 
                 {/* Quick stats */}
                 <div className="retro-mono text-xs text-gray-500">
-                  v3.1.2 • RETRO
+                  {APP_VERSION_FULL}
                 </div>
               </div>
             </FadeIn>

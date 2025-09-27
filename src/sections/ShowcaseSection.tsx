@@ -25,7 +25,7 @@ const showcaseImages = [
 
 export function ShowcaseSection() {
   return (
-    <section id="showcase" className="py-8 md:py-16 px-4 md:px-8">
+    <section id="showcase" className="px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
         <FadeIn stagger>
           <RetroCard>
