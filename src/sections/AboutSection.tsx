@@ -3,10 +3,27 @@ import { RetroCard } from '../components/RetroCard';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import Nostalgia from '../assets/nostalgia.gif';
 import { APP_VERSION } from '../constants/version';
+import { useEffect, useState } from 'react';
 
 const nbsp = (count: number) => '\u00A0'.repeat(count);
 
 export function AboutSection() {
+  
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    const checkDeviceType = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      setIsTablet(width >= 768 && width < 892);
+    };
+
+    checkDeviceType();
+    window.addEventListener('resize', checkDeviceType);
+    return () => window.removeEventListener('resize', checkDeviceType);
+  }, []);
+
   return (
     <section id="about" className="py-8 md:py-16 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
@@ -14,40 +31,46 @@ export function AboutSection() {
         <FadeIn>
           <div className="text-center mb-12">
             <h2 className="retro-text text-4xl text-cyan-400 mb-4">
-              ABOUT_PAIN.NETWORK
+              {isMobile ? 'ABOUT' : 'ABOUT_PAIN.NETWORK'}
             </h2>
             <div className="retro-mono text-gray-300 text-lg max-w-3xl mx-auto">
-              Born from the underground // Built for the global scene
+              {isMobile ? (
+                <>
+                  Born from the underground <br />
+                  Built for the global scene
+                </>
+              ) : (
+                'Born from the underground // Built for the global scene'
+              )}
             </div>
           </div>
         </FadeIn>
 
         {/* Main Content Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className={`grid gap-8 mb-12 justify-center
+        ${isTablet ? 'grid-cols-1' : isMobile ? 'grid-cols-1' : 'grid-cols-2'}`}>
           {/* Story Card */}
           <FadeIn>
             <RetroCard glowing className="h-full">
-              <div className="p-6">
-                <h3 className="retro-text text-2xl text-cyan-400 mb-4">
-                  THE_ORIGIN.EXE
-                </h3>
-                <div className="retro-mono text-gray-300 space-y-4">
-                  <p>
-                    In the depths of 2000s Japanese tuner culture, where anime meets asphalt
-                    and digital dreams become reality, Pain Network emerged as a sanctuary
-                    for the misunderstood art of Itasha.
-                  </p>
-                  <p>
-                    What started as scattered communities across forums and Discord servers
-                    has evolved into a global phenomenon. We're the bridge between the golden
-                    age of car forums and today's digital drift culture.
-                  </p>
-                  <p>
-                    Pain Network isn't just a community — it's a digital time capsule,
-                    preserving the aesthetic and spirit of an era when the internet felt
-                    limitless and creativity knew no bounds.
-                  </p>
-                </div>
+              <h3 className="retro-text text-2xl text-cyan-400 mb-4">
+                THE_ORIGIN.EXE
+              </h3>
+              <div className="retro-mono text-gray-300 space-y-4">
+                <p>
+                  In the depths of 2000s Japanese tuner culture, where anime meets asphalt
+                  and digital dreams become reality, Pain Network emerged as a sanctuary
+                  for the misunderstood art of Itasha.
+                </p>
+                <p>
+                  What started as scattered communities across forums and Discord servers
+                  has evolved into a global phenomenon. We're the bridge between the golden
+                  age of car forums and today's digital drift culture.
+                </p>
+                <p>
+                  Pain Network isn't just a community — it's a digital time capsule,
+                  preserving the aesthetic and spirit of an era when the internet felt
+                  limitless and creativity knew no bounds.
+                </p>
               </div>
             </RetroCard>
           </FadeIn>
@@ -56,23 +79,21 @@ export function AboutSection() {
           <FadeIn>
             <div className="space-y-6">
               <RetroCard>
-                <div className="p-4">
-                  <ImageWithFallback
-                    src={Nostalgia}
-                    alt="Nostalgia GIF"
-                    className="w-full object-cover border border-cyan-400/30"
-                  />
-                  <div className="mt-6 text-center">
-                    <div className="retro-mono text-xs text-cyan-400/70">
-                      ▓▓▓ LOADING_NOSTALGIA.GIF ▓▓▓
-                    </div>
+                <ImageWithFallback
+                  src={Nostalgia}
+                  alt="Nostalgia GIF"
+                  className="w-full object-cover border border-cyan-400/30"
+                />
+                <div className="mt-6 text-center">
+                  <div className="retro-mono text-xs text-cyan-400/70">
+                    ▓▓▓ LOADING_NOSTALGIA.GIF ▓▓▓
                   </div>
                 </div>
               </RetroCard>
 
               {/* ASCII Art Box */}
               <RetroCard>
-                <div className="p-4 bg-black/50">
+                <div className="py-4 bg-black/50">
                   <div className="retro-mono text-xs text-cyan-400/60 text-center leading-tight">
                     ╔══════════════════════════════════╗<br />
                     ║{nbsp(3)}PAIN.NETWORK.WORLDWIDE {APP_VERSION}{nbsp(3)}║<br />
@@ -94,9 +115,9 @@ export function AboutSection() {
         {/* Philosophy Section */}
         <FadeIn stagger>
           <RetroCard glowing>
-            <div className="p-8 text-center">
+            <div className="p-2 text-center">
               <h3 className="retro-text text-2xl text-cyan-400 mb-6">
-                OUR_PHILOSOPHY.TXT
+                {isMobile ? 'OUR PHILOSOPHY' : 'OUR_PHILOSOPHY.TXT'}
               </h3>
               <div className="retro-mono text-gray-300 max-w-4xl mx-auto space-y-4">
                 <p className="text-lg">
@@ -115,20 +136,24 @@ export function AboutSection() {
           </RetroCard>
 
           {/* Stats Ticker */}
-          <div className="mt-12">
-            <RetroCard>
-              <div className="p-4 bg-gradient-to-r from-black via-gray-900 to-black">
-                <div className="retro-mono text-xs text-cyan-400 text-center">
-                  <div className="flex justify-center items-center space-x-8">
-                    <span>◊ EST_2024 ◊</span>
-                    <span>◊ MEMBERS_WORLDWIDE ◊</span>
-                    <span>◊ ZERO_GATEKEEPING ◊</span>
-                    <span>◊ INFINITE_CREATIVITY ◊</span>
+          {isMobile ? (
+            ''
+          ) : (
+            <div className="mt-12">
+              <RetroCard>
+                <div className="p-4 bg-gradient-to-r from-black via-gray-900 to-black">
+                  <div className="retro-mono text-xs text-cyan-400 text-center">
+                    <div className="flex justify-center items-center space-x-8">
+                      <span>◊ EST_2024 ◊</span>
+                      <span>◊ MEMBERS_WORLDWIDE ◊</span>
+                      <span>◊ ZERO_GATEKEEPING ◊</span>
+                      <span>◊ INFINITE_CREATIVITY ◊</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </RetroCard>
-          </div>
+              </RetroCard>
+            </div>
+          )}
         </FadeIn>
       </div>
     </section>
