@@ -2,233 +2,132 @@
 
 ![Pain Network Worldwide Landing Page](src/assets/preview.png)
 
-A nostalgic reimagining of 2000s Japanese car culture websites built with modern tech. This landing page captures the essence of classic tuner sites like ABFLUG, RE-Amemiya, and C-West, featuring bold retro-cyberpunk design elements while delivering a smooth, contemporary user experience.
+Retro-inspired landing page (2000s Japanese tuner / cyberpunk aesthetic) built with modern tooling: React, Vite and Radix UI.
 
-## 🌟 Project Vision
+This README explains how to run the project locally, where to edit content, and what the important files are.
 
-This project combines:
+## Highlights
 
-- **2000s Aesthetic**: Flash-inspired animations, dense layouts, and high-contrast cyber-styling
-- **Modern Tech**: Built with React 18, Vite, and Radix UI for reliable performance
-- **Car Culture**: Focused on the global Itasha and JDM community
-- **Responsive Design**: Maintains retro feel while working on all devices
+- Purpose: A nostalgic, responsive landing page with bold styling and component-driven structure.
+- Tech: React 18 + TypeScript, Vite, Radix UI, and modern CSS.
+- UX: Mobile-first responsive design with a retro visual language.
 
-### Design Inspiration
+## Try it live
 
-- Early 2000s Japanese tuner websites
-- Underground street racing aesthetic
-- Cyberpunk/tech noir visuals
-- Classic web elements (animated GIFs, textured backgrounds)
+Want to see it running? Visit the hosted demo: [https://painnetwork.gt.tc/](https://painnetwork.gt.tc/)
 
-## 🎯 Before You Start
+## Quick start
 
-### Required Knowledge
-
-- Basic understanding of:
-  - HTML & CSS
-  - JavaScript fundamentals
-  - React basics (components, hooks)
-  - Terminal/command line usage
-
-### Technical Requirements
+Requirements
 
 - Node.js v18 or newer
-- Code editor (e.g., VS Code)
-- Git (for cloning)
+- Git
+- A code editor (VS Code recommended)
 
-## 🚀 Getting Started
+Clone and install
 
-### 1. Set Up Your Environment
-
-1. Install Node.js:
-   - Required version: v18 or newer
-
-   ```sh
-   # Windows: Download from https://nodejs.org/ (LTS version)
-   # Mac: Use homebrew
-   brew install node
-   ```
-
-2. Install a code editor:
-   - Download VS Code: <https://code.visualstudio.com/>
-   - Recommended extensions:
-     - ESLint
-     - Prettier
-     - TypeScript support
-
-### 2. Dependencies Overview
-
-This project uses several key packages:
-
-- **UI Components**: Radix UI component library
-- **Styling**: Tailwind CSS with class-variance-authority
-- **Core**: React 18, Vite 6
-- **Animation**: Motion library
-- **Forms**: React Hook Form
-- **Data Visualization**: Recharts
-
-Key development dependencies:
-
-- TypeScript support
-- Vite with React SWC plugin
-- Node types
-
-### 3. Get The Code
-
-```sh
-# Clone the repository
-git clone https://github.com/your-username/pain-network-worldwide.git
-
-# Navigate to project folder
+```powershell
+# clone
+git clone https://github.com/Razanius12/pain-network-worldwide.git
 cd pain-network-worldwide
 
-# Install all dependencies
+# install (npm)
 npm install
-# Or if you prefer pnpm
+
+# or with pnpm (recommended if you use pnpm)
 pnpm install
 ```
 
-### 4. Development
+Start dev server
 
-```sh
-# Start development server
+```powershell
+# npm
 npm run dev
-# Or with pnpm
+
+# pnpm
 pnpm dev
 ```
 
-Visit <http://localhost:5173> in your browser
+Open <http://localhost:5173> (or the port shown in the terminal).
 
-## 🔨 Common Tasks
+Build & preview production bundle
 
-### Updating Content
-
-1. Site Text & Components
-   - Navigate to components
-   - Edit component files directly
-   - Example: Change hero text in HeroSection.tsx
-
-2. Styling
-
-   ```css
-   /* Edit src/styles/retro.css for custom styles */
-   .custom-class {
-     color: #67E8F9; /* Cyan accent color */
-   }
-   
-   /* Global styles in src/index.css */
-   ```
-
-3. Images
-   - Place new images in assets
-   - Import in components:
-
-   ```tsx
-   import MyImage from '@/assets/image.png';
-   ```
-
-### Changing Social Links
-
-Update these files:
-
-- Header.tsx - Navigation links
-- CommunityCalloutSection.tsx - Discord link
-- FooterSection.tsx - All social links
-
-### Building for Production
-
-```sh
-# Create production build
+```powershell
+# build
 npm run build
-# Or with pnpm
-pnpm build
 
-# Preview production build
+# preview the optimized build
 npm run preview
 ```
 
-The build output will be in the `dist/` folder.
+Tips
 
-## 🎨 Customization Guide
+- Use `pnpm` if you prefer faster installs and a deterministic lockfile (pnpm is already supported).
+- Use VS Code with the ESLint and Prettier extensions for consistent formatting.
 
-### Colors
+## What to edit (common beginner tasks)
 
-Main colors used:
+- Change hero text: `src/sections/HeroSection.tsx`
+- Change footer or social links: `src/sections/FooterSection.tsx`
+- Update Instagram URLs centrally: `src/constants/instagram.ts`
+- Global styles: `src/index.css` and `src/styles/retro.css`
+- Add images: place them in `src/assets/` and import them (e.g. `import Img from '@/assets/my.png'`).
 
-- Background: Dark (#000000)
-- Accent: Cyan (#67E8F9)
-- Text: White (#FFFFFF)
-- Muted Text: Gray (#6B7280)
+Small example (edit hero copy)
 
-Edit these in:
+1. Open `src/sections/HeroSection.tsx`.
+2. Update the JSX text or props used for the heading and save — Vite will hot-reload.
 
-- retro.css
-- Tailwind config if using utility classes
+## Project structure (important files)
 
-### Fonts
+- `index.html` — app entry.
+- `src/main.tsx` — React entry file.
+- `src/App.tsx` — main app / routing wrapper.
+- `src/sections/` — the page sections (Hero, Showcase, Footer, etc.).
+- `src/components/` — reusable presentational components.
+- `src/constants/instagram.ts` — central Instagram links used across the app.
+- `src/styles/retro.css` — retro-specific CSS; `src/index.css` contains global styles.
 
-- Headings: Orbitron (futuristic)
-- Monospace: Share Tech Mono
-- Body: System default
+## Common developer workflows
 
-### Components
+- Lint (if ESLint is configured locally): `npm run lint` (not included by default — check package.json)
+- Format: Use Prettier extension or `npx prettier --write .`
 
-Main sections in sections:
+If you add new packages:
 
-- HeroSection
-- ShowcaseSection
-- CommunityHighlights
-- InstagramSection
-- Footer
+```powershell
+# npm
+npm install <pkg>
 
-## 📱 Mobile Responsiveness
+# pnpm
+pnpm add <pkg>
+```
 
-The site is fully responsive with breakpoints:
+## Troubleshooting
 
-- Mobile: < 768px
-- Tablet: 768px - 1024px
-- Desktop: > 1024px
+- Port conflict: `npm run dev -- --port 3000`
+- Missing dependency errors: delete `node_modules` and reinstall (`rm -r node_modules` or in PowerShell: `Remove-Item -Recurse -Force node_modules`) then run install again.
+- Type or compile errors: check the terminal where Vite runs — it shows file and line numbers for quick fixes.
 
-## ⚠️ Troubleshooting
+## Contributing
 
-1. Port conflicts:
+Contributions are welcome. A simple workflow:
 
-   ```sh
-   # Start on different port
-   npm run dev -- --port 3000
-   ```
+1. Fork the repo
+2. Create a descriptive branch (e.g. `feature/update-hero-text`)
+3. Commit and push
+4. Open a PR
 
-2. Dependencies issues:
+If you intend to make bigger changes (new sections, build changes), open an issue first to discuss the approach.
 
-   ```sh
-   # Clear node_modules and reinstall
-   rm -rf node_modules
-   npm install
-   ```
+## License & Attributions
 
-3. Build errors:
-   - Check console for error messages
-   - Verify all imports exist
-   - Check syntax in modified files
+This project is released under CC0 1.0 Universal (public domain). See `LICENSE` for details.
 
-## 📄 License & Attribution
+Attributions and third-party assets are listed in `src/Attributions.md`.
 
-See Attributions.md for:
-
-- Third-party assets
-- Component libraries
-- Design inspiration
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch
-3. Commit changes
-4. Push to branch
-5. Open pull request
-
-## 🔗 Links
+## Contact
 
 - Discord: <https://discord.com/invite/nG8QZZM6vW>
-- Instagram: <https://instagram.com/pain.network.worldwide>
-- YouTube: <https://youtube.com/@minami9chu>
+- Instagram: <https://www.instagram.com/painnetwork.gt.tc/>
+- GitHub: <https://github.com/Razanius12>

@@ -1,6 +1,7 @@
 import { FadeIn } from '../components/FadeIn';
 import { useEffect } from "react";
 import { RetroCard } from "../components/RetroCard";
+import { PAINNETWORK_INSTAGRAM } from '../constants/instagram';
 
 export function InstagramSection() {
   useEffect(() => {
@@ -34,7 +35,7 @@ export function InstagramSection() {
 
             <div className="text-center">
               <a
-                href="https://www.instagram.com/pain.network.worldwide/"
+                href={PAINNETWORK_INSTAGRAM}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="retro-button instagram-cta hover:scale-105 transform transition-all"

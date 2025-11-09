@@ -1,5 +1,6 @@
 import { FadeIn } from '../components/FadeIn';
 import { RetroCard } from '../components/RetroCard';
+import { PAINNETWORK_INSTAGRAM } from '../constants/instagram';
 
 const footerLinks = [
   {
@@ -7,7 +8,7 @@ const footerLinks = [
     label: "Discord"
   },
   {
-    href: "https://www.instagram.com/pain.network.worldwide/",
+    href: PAINNETWORK_INSTAGRAM,
     label: "Instagram"
   },
   {

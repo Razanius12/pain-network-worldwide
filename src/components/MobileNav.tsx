@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ExternalLink } from 'lucide-react';
 import { RetroButton } from './RetroButton';
+import { PAINNETWORK_INSTAGRAM } from '../constants/instagram';
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { label: 'Discord', href: 'https://discord.com/invite/nG8QZZM6vW' },
-    { label: 'Instagram', href: 'https://instagram.com/pain.network.worldwide' },
+    { label: 'Instagram', href: PAINNETWORK_INSTAGRAM },
     { label: 'YouTube', href: 'https://youtube.com/@minami9chu' },
   ];
 

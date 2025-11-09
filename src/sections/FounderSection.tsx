@@ -1,5 +1,6 @@
 import { FadeIn } from '../components/FadeIn';
 import { RetroCard } from '../components/RetroCard';
+import { MINAMI_INSTAGRAM } from '../constants/instagram';
 
 export function FounderSection() {
   return (
@@ -10,7 +11,7 @@ export function FounderSection() {
           <div className="retro-text text-2xl md:text-3xl text-cyan-400 mb-4">
             Founded by{' '}
             <a
-              href="https://www.instagram.com/minami7chu"
+              href={MINAMI_INSTAGRAM}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-cyan-300 transition-colors duration-200"

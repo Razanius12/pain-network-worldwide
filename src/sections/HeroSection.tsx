@@ -1,6 +1,7 @@
 import { FadeIn } from '../components/FadeIn';
 import { MarqueeText } from '../components/MarqueeText';
 import heroImage from '@/assets/hero.png';
+import { PAINNETWORK_INSTAGRAM } from '../constants/instagram';
 
 export function HeroSection() {
   const startupDelay = 4.2;
@@ -47,7 +48,7 @@ export function HeroSection() {
               Join the Discord
             </a>
             <a
-              href="https://www.instagram.com/pain.network.worldwide/"
+              href={PAINNETWORK_INSTAGRAM}
               target="_blank"
               rel="noopener noreferrer"
               className="retro-button hover:scale-105 transform transition-all"
