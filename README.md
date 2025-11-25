@@ -129,5 +129,5 @@ Attributions and third-party assets are listed in `src/Attributions.md`.
 ## Contact
 
 - Discord: <https://discord.com/invite/nG8QZZM6vW>
-- Instagram: <https://www.instagram.com/painnetwork.gt.tc/>
+- Instagram: <https://www.instagram.com/ita.net7/>
 - GitHub: <https://github.com/Razanius12>
